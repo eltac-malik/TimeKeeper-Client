@@ -1,0 +1,30 @@
+.slider-item
+{
+    width: 100%;
+    height: 500px;
+    background-color: red;
+}
+.slider-item img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.q2
+{
+    background-color: blue;
+}
+.q3
+{
+    background-color: green;
+}
+
+
+
+@media(max-width:900px)
+{
+    .slider-item
+    {
+        height: 400px;
+    }
+}

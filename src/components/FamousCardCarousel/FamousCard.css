@@ -1,0 +1,34 @@
+.famous
+{
+    
+    width: 85%;
+    height: 350px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background-color: rgb(211, 208, 208);
+}
+
+.card-slide
+{
+    width: 90%;
+}
+
+.card-fam
+{
+    width: 300px !important;
+    height: 270px;
+    background-color: red;
+    margin: 0 15px !important;
+}
+
+@media(max-widht:900px)
+{
+    .card-fam
+    {
+        width: 150px !important;
+        margin: 0 15px;
+    }
+}
