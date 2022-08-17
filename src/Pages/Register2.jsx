@@ -25,7 +25,18 @@ function Register2() {
             onSubmit={(x)=>
             {
                 dispatch(setRegData({...reg,username:x.regusr,email:x.regmail,phone:x.regphone,password:x.regpsw}))
-                console.log(reg);
+                
+                let newuser = 
+                {
+                    username:x.regusr,
+                    name:reg.name,
+                    surname:reg.surname,
+                    email:x.regmail,
+                    phoneNumber:x.regphone,
+                    password:x.regpsw
+                }
+                console.log(newuser);
+                
                 
             }}
             >
