@@ -4,10 +4,12 @@ import { Formik, Form, Field } from "formik";
 import reg2val from 'validation/reg2Validation'
 import {useSelector,useDispatch} from 'react-redux'
 import {setRegData} from 'redux/registerSlice'
+import {useNavigate} from 'react-router-dom'
 
 function Register2() {
 
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const reg = useSelector(state => state.reg.regdata)
     return (
         <div className='reg2'>
@@ -23,6 +25,8 @@ function Register2() {
             onSubmit={(x)=>
             {
                 dispatch(setRegData({...reg,username:x.regusr,email:x.regmail,phone:x.regphone,password:x.regpsw}))
+                console.log(reg);
+                
             }}
             >
                 <Form className='reg2-form'>
@@ -47,8 +51,12 @@ function Register2() {
                         <Field name='reg-username' name='regcpsw' className='reg-datas' id='reg-usr'/>
                     </div>
                     <input className='reg-sub' type="submit"/>
+                    <div className="lg-div">
+                    <p onClick={()=> navigate("/register")} className='ch-psw'>Go back</p>
+                    </div>
                 </Form>
             </Formik>
+
         </div>
     )
 }

@@ -175,15 +175,12 @@
   @media (max-width: 900px) {
     .form-contact {
       flex-direction: column;
+      padding: 0 20px;
     }
     .frm {
       padding: 15px;
       width: 100%;
       margin: 5px;
-    }
-    .frame
-    {
-        height: 300px;
     }
     
   }

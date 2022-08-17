@@ -4,6 +4,7 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 import {useSelector} from 'react-redux'
 import Basket from "components/Basket/Basket";
+import {useNavigate} from 'react-router-dom'
 
 function Navbar() {
   const [menu, setMenu] = useState("deactive-menu");
@@ -22,6 +23,14 @@ function Navbar() {
     setCheckUser(JSON.parse(localStorage.getItem("Utoken")))
   },[])
   
+  const navigate = useNavigate()
+
+  const handleGo = (e)=>
+  {
+    navigate(e);
+    setMenu("deactive-menu")
+  }
+
   
   return (
     <div className="navbar">
@@ -86,7 +95,7 @@ function Navbar() {
         <Basket bs={bs}/>
         <span>0</span>
       </div>
-      <div className={`resp ${menu}`}>
+      <div className={` ${menu}`}>
           <ul className="resp-ul">
               <li className="resp-li">
                   <Link className='resp-link' to='/'>Home</Link>

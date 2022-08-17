@@ -1,19 +1,25 @@
 import React,{useEffect,useState} from 'react'
 import 'assets/css/Profile.css'
 import {Formik,Form,Field} from 'formik'
-import {Link} from 'react-router-dom'
+import {Link,useNavigate} from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import { useJwt,isExpired,decodeToken } from "react-jwt";
 
 function Profile() {
 
     const [pd,setPd] = useState(null)
-
+    const navigate = useNavigate()
         
     useEffect(()=>
     {
         setPd(JSON.parse(localStorage.getItem("Utoken")))
     },[])
+
+    const handleLogOut = ()=>
+    {
+        localStorage.removeItem("Utoken")
+        navigate("/")
+    }
 
     
     let x = decodeToken(pd)
@@ -56,6 +62,7 @@ function Profile() {
                     </Form>
                 </Formik>
                         <Link className='ch-psw' to='/reset'>Change Password</Link>
+                        <p onClick={handleLogOut}  className='ch-psw'>Log out</p>
             </div>
         </div>
     )

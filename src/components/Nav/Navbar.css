@@ -114,27 +114,26 @@
     display: none;
 }
 
-.resp
+.deactive-menu
 {
     display: none;
+    height: 0vh;
+    transition: 0.3s;
     width: 100%;
     top: 80px;
     left: 0%;
     position: absolute;
 }
 
-.deactive-menu
-{
-    height: 0vh;
-    opacity: 0;
-    transition: 0.3s;
-}
-
 .active-menu
 {
+    display: block;
     height: 90vh;
-    opacity: 1;
     transition: 0.3s;
+    width: 100%;
+    top: 80px;
+    left: 0%;
+    position: absolute;
 }
 
 .resp-ul
@@ -313,6 +312,7 @@
     color: #f9706a;
     transition: 0.3s;
 }
+
 
 @media(max-width:900px)
 {
