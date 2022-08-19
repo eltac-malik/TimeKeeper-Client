@@ -296,7 +296,7 @@
 
 .bs-n
 {
-    display: none;
+    display: none !important;
 }
 .bs-b
 {

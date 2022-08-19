@@ -4,7 +4,7 @@ import {createSlice} from '@reduxjs/toolkit'
 const basketSlice = createSlice({
     name:"basket",
     initialState:{
-        basket:[]
+        basket:JSON.parse(localStorage.getItem("basket"))
     },
     reducers:{
         setBasket:(state,action)=>

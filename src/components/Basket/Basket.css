@@ -12,6 +12,10 @@
     border: 1px solid silver;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 20px;
 }
 
 .totalsum
@@ -38,3 +42,38 @@
     font-size: 20px;
     padding-left: 10px;
 }
+
+.bs-item
+{
+    width: 90%;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid silver
+}
+
+.change
+{
+    width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.change p
+{
+    padding-top: 10px;
+}
+
+.fd
+{
+    font-size: 15px !important;
+}
+
+.item-name
+{
+    width: 100px;
+}
+
+
