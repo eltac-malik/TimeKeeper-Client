@@ -17,6 +17,14 @@ import {AnimatePresence} from 'framer-motion'
 
 function App() {
 
+  useEffect(()=>
+  {
+    
+    if (JSON.parse(localStorage.getItem("basket")===null))
+    {
+      localStorage.setItem("basket",JSON.stringify([])) 
+    }
+  },[])
 
   let location = useLocation()
 

@@ -13,10 +13,7 @@ function SliderCarousel() {
       .then(resp=> setSld(resp.data))
     },[])
 
-
-    console.log(sld);
     
-
   const settings = {
     dots: true,
     autoplay: true,
@@ -37,7 +34,7 @@ function SliderCarousel() {
         sld&&sld.map(e=>
           {
             return(
-        <div className="slider-item">
+        <div key={e.id} className="slider-item">
             <img src={`http://ejtacmalik-001-site1.btempurl.com/sliders/${e.image}`} alt=""/>
         </div>
             )

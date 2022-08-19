@@ -10,6 +10,12 @@ function Shop() {
   const [size, setSize] = useState([]);
 
 
+  console.log(inp);
+  console.log(vendor);
+  console.log(color);
+  console.log(size);
+  
+
   
 
   const handleVendor = (e) => {
