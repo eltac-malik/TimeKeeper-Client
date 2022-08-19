@@ -10,9 +10,15 @@ const basketSlice = createSlice({
         setBasket:(state,action)=>
         {
             state.basket = action.payload
+        },
+        delBasket:(state,action)=>
+        {
+            let newFilter = state.basket.filter(e=> e.id !== action.payload)
+            localStorage.setItem("basket",JSON.stringify(newFilter))
+            state.basket = JSON.parse(localStorage.getItem("basket"))
         }
     }
 })
 
 export default basketSlice.reducer;
-export const {setBasket} = basketSlice.actions
+export const {setBasket,delBasket} = basketSlice.actions

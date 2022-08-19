@@ -64,7 +64,7 @@ function Index() {
     {
         let x = JSON.parse(localStorage.getItem("basket"))
         localStorage.setItem("basket",JSON.stringify([...x,e]))
-        dispatch(setBasket(localStorage.getItem("basket")))
+        dispatch(setBasket(JSON.parse(localStorage.getItem("basket"))))
     }
   }
 

@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import './Basket.css'
 import {useSelector,useDispatch} from 'react-redux'
-import {setBasket} from 'redux/basketSlice'
+import {delBasket} from 'redux/basketSlice'
 
 function Basket({bs}) {
 
@@ -17,10 +17,7 @@ function Basket({bs}) {
 
     let sum = 0;
 
-    bsdata.forEach(e=>{
-        sum = sum+Number(e.discountPrice)
-    })
-    
+  
 
     return (
         <div className={`bskt ${bs}`}>
@@ -38,9 +35,7 @@ function Basket({bs}) {
                                 </div>
                                 <i onClick={()=>
                                 {
-                                    let newFilter = x.filter(z=> z.id != e.id)
-                                    dispatch(setBasket(newFilter))
-                                    localStorage.setItem("basket",newFilter.length !==0?newFilter:[])
+                                    dispatch(delBasket(e.id))
                                 }} class="fa-solid fa-trash-can"></i>
                             </div>
                         )
