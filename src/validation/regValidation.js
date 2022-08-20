@@ -3,8 +3,8 @@ import {object,string} from 'yup'
 
 const reg1Val = object(
     {
-        name:string().required().min(3),
-        surname:string().required().min(3)
+        name:string().required("Bos saxlamayin").min(3),
+        surname:string().required("Bos saxlamayin").min(3)
     }
 )
 

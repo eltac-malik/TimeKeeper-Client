@@ -39,7 +39,7 @@ function Register2() {
                 }
                 
                 axios.post("http://ejtacmalik-001-site1.btempurl.com/api/Accounts/register",newuser)
-                .then(resp=> console.log(resp.data))
+                .then(resp=> console.log(resp.status))
                 
                 
             }}

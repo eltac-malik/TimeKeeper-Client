@@ -2,10 +2,10 @@ import {object,string} from 'yup'
 
 let contactVal = object(
     {
-        name:string().required(),
-        email:string().required(),
-        subject:string().required(),
-        message:string().required().min(20)
+        name:string().required("Bos saxlamayin"),
+        email:string().required("Bos saxlamayin"),
+        subject:string().required("Bos saxlamayin"),
+        message:string().required("Bos saxlamayin").min(20)
     }
 )
 

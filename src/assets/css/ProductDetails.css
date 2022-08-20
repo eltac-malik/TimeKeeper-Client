@@ -1,4 +1,73 @@
 .p-details
 {
-    margin-top: 80px
+    margin-top: 80px;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-det
+{
+    width: 80%;
+    height: 90%;
+    background-color: aqua
+}
+
+.item-slid
+{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: red
+}
+
+.itm-img
+{
+    width: 80%;
+    height: 70%;
+    background-color: blue;
+}
+.itm-img img
+{
+    width: 100%;
+}
+
+.itm-slds
+{
+    width: 80%;
+    height: 20%;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: brown
+}
+.about-slid
+{
+    height: 90%;
+    width: 90%;
+    background-color: seagreen
+}
+
+.prod-img
+{
+    width: 70px !important;
+    height: 70px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgb(221, 218, 218);
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.prod-img img
+{
+    width: 100%;
 }
