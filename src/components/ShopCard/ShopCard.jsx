@@ -22,6 +22,7 @@ function ShopCard() {
 
     console.log(pdata);
     
+    
     const handleDeatils = (e)=>
     {
         navigate(`/details/${e}`)

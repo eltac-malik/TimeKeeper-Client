@@ -8,7 +8,6 @@ function Basket({bs}) {
     const [bsdata,setBsData] = useState([])
     const dispatch = useDispatch()
     const x = useSelector(state => state.basket.basket)
-    console.log(x);
     
     useEffect(()=>
     {
@@ -17,6 +16,9 @@ function Basket({bs}) {
 
     let sum = 0;
 
+    x&&x.forEach(element => {
+        sum = sum= sum+element.discountPrice
+    });
   
 
     return (

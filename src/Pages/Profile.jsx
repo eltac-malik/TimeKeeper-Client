@@ -23,7 +23,6 @@ function Profile() {
 
     
     let x = decodeToken(pd)
-    console.log(x&&x.email);
 
     return (
         <div className='profile'>

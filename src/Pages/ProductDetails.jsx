@@ -14,7 +14,6 @@ function ProductDetails() {
         .then(resp=> setUser(resp.data))
     },[])
 
-    console.log(user);
     
 
     return (

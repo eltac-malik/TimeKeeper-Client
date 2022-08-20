@@ -37,7 +37,6 @@ function Register2() {
                     phoneNumber:x.regphone,
                     password:x.regpsw
                 }
-                console.log(newuser);
                 
                 axios.post("http://ejtacmalik-001-site1.btempurl.com/api/Accounts/register",newuser)
                 .then(resp=> console.log(resp.data))

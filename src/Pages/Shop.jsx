@@ -2,18 +2,25 @@ import React, { useState, useEffect } from "react";
 import "assets/css/Shop.css";
 import { Link } from "react-router-dom";
 import ShopCard from 'components/ShopCard/ShopCard'
+import axios from 'axios';
 
 function Shop() {
   const [inp,setInp] = useState("") 
   const [vendor, setVendor] = useState([]);
   const [color, setColor] = useState([]);
   const [size, setSize] = useState([]);
+  const [fillColor, setFillColor] = useState([]);
+  
+  useEffect(()=>
+  {
+    axios.get("http://ejtacmalik-001-site1.btempurl.com/api/Products/colors")
+    .then(resp=> setColor(resp.data))
+  },[])
 
 
-  console.log(inp);
-  console.log(vendor);
-  console.log(color);
-  console.log(size);
+  let ucolor = fillColor.filter(e=> e!==undefined)
+  console.log(ucolor);
+  
   
 
   
@@ -25,10 +32,10 @@ function Shop() {
   };
   let z = vendor.filter((e) => e != undefined);
 
-  const handleColor = (e) => {
-    color.includes(e)
-      ? setColor(color.filter((x) => x != e && x != undefined))
-      : setColor([...color, e]);
+  const handleFillColor = (e) => {
+    fillColor.includes(e)
+      ? setFillColor(fillColor.filter((x) => x != e && x != undefined))
+      : setFillColor([...fillColor, e]);
   };
   const handleSize = (e) => {
     size.includes(e)
@@ -106,38 +113,23 @@ function Shop() {
           <div className="search-part adv">
             <h3 className="search-title">Color</h3>
             <div className="search-data flex-data">
+            {
+              color&&color.map(z=>
+                {
+                  return(
               <label
-                onClick={(e) => handleColor(e.target.value)}
-                htmlFor="5"
+                onClick={(e) => handleFillColor(e.target.value)}
+                htmlFor={z.id}
                 className="search-param flex-lab"
               >
-                <input className="chck" value="vusal" id="5" type="checkbox" />
-                vusal
+                <input className="chck" value={z.name} id={z.id} type="checkbox" />
+                {z.name}
               </label>
-              <label
-                onClick={(e) => handleColor(e.target.value)}
-                htmlFor="6"
-                className="search-param flex-lab"
-              >
-                <input className="chck" value="eltac" id="6" type="checkbox" />
-                eltac
-              </label>
-              <label
-                onClick={(e) => handleColor(e.target.value)}
-                htmlFor="7"
-                className="search-param flex-lab"
-              >
-                <input className="chck" value="isaq" id="7" type="checkbox" />
-                isaq
-              </label>
-              <label
-                onClick={(e) => handleColor(e.target.value)}
-                htmlFor="8"
-                className="search-param flex-lab"
-              >
-                <input className="chck" value="cina" id="8" type="checkbox" />
-                cina
-              </label>
+                  )
+                })
+            }
+
+
             </div>
           </div>
 
