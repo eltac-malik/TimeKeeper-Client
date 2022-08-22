@@ -4,7 +4,7 @@ import axios from 'axios'
 import Slider from "react-slick";
 import {useNavigate} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
-import {setBasket} from 'redux/basketSlice'
+import {setBasket,addCount} from 'redux/basketSlice'
 
 function Index() {
 
@@ -65,6 +65,7 @@ function Index() {
         let x = JSON.parse(localStorage.getItem("basket"))
         localStorage.setItem("basket",JSON.stringify([...x,e]))
         dispatch(setBasket(JSON.parse(localStorage.getItem("basket"))))
+        dispatch(addCount())
     }
   }
 
@@ -84,7 +85,7 @@ function Index() {
                 </div>
                 <h3>{e.name}</h3>
                 <div className="add-crd">
-                <p onClick={()=> handleBasket(e)}>Add to Cart</p>
+                <p className='bs-c' onClick={()=> handleBasket(e)}>Add to Cart</p>
                 </div>
               </div>
               )

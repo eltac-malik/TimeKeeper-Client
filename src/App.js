@@ -13,6 +13,7 @@ import Blog from 'Pages/Blog'
 import Reset from 'components/ResetPassword/index'
 import Details from 'Pages/ProductDetails'
 import {AnimatePresence} from 'framer-motion'
+import BDetails from 'Pages/BlogDetails'
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path='/profile' element={<Base><Profile/></Base>}/>
           <Route path='/reset' element={<Base><Reset/></Base>}/>
           <Route path='/blog' element={<Base><Blog/></Base>}/>
+          <Route path='/blog/:id' element={<Base><BDetails/></Base>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/registers2' element={<Register2/>}/>
           <Route path='/contact' element={<Base><Contact/></Base>}/>

@@ -84,7 +84,20 @@ function ProductDetails() {
                             </div>
                         </Slider>
                     </div>
+                    
                 </div>
+                                              
+                <div className="item-content">
+                  <div className="itm-content">
+                    <h1 className='prod-title'>{prod&&prod.name}</h1>
+                    <div className="prod-price">
+                      <p className='item-price'>{prod&&prod.price} AZN</p>
+                      <p className='prod-dis'>{prod&&prod.price} AZN</p>
+                    </div>
+                    <p className='prod-desc'>{prod&&prod.description}</p>
+                  </div>
+                </div>
+           
             </div>
             
         </div>

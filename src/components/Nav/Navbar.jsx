@@ -12,6 +12,8 @@ function Navbar() {
   const [prod,setProd] = useState([])
   const [bs,setBs] = useState("bs-n")
 
+  const cnt = useSelector(state => state.basket.count)
+  console.log(cnt);
   useEffect(()=>
   {
     axios.get("https://jsonplaceholder.typicode.com/users")
@@ -93,7 +95,7 @@ function Navbar() {
       }    
         <i onClick={()=> (bs==="bs-n"? setBs("bs-b"):setBs("bs-n"))} className="bi bi-cart3"></i>
         <Basket bs={bs}/>
-        <span>0</span>
+        <span>{cnt&&cnt}</span>
       </div>
       <div className={` ${menu}`}>
           <ul className="resp-ul">

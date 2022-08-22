@@ -1,7 +1,18 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
+import axios from 'axios'
 import "./Footer.css";
 
 function Footer() {
+
+  const [foot,setFoot] = useState([])
+  useEffect(()=>
+  {
+    axios.get("http://ejtacmalik-001-site1.btempurl.com/api/Blogs")
+    .then(resp=> setFoot(resp.data))
+  },[])
+
+  let seen = foot&&foot.slice(0,2)
+
   return (
     <div className="footer">
       <div className="address foot">
@@ -44,12 +55,21 @@ function Footer() {
       </div>
       <div className="latest foot">
         <h2>Latest Blogs</h2>
-        <div className="footcard">
-          
-        </div>
-        <div className="footcard">
-          
-        </div>
+        {
+          seen.map(e=>
+            {
+              return(
+                <div className="footcard">
+                  <div className="foot-img">
+                  <img src={`http://ejtacmalik-001-site1.btempurl.com/blogs/${e.image}`} alt=""/>
+                  </div>
+                  <div className="foot-cont">
+                    <h4>{e.name}</h4>
+                  </div>
+                </div>
+              )
+            })
+        }
       </div>
     </div>
   );

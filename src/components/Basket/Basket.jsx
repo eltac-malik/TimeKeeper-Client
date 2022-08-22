@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import './Basket.css'
 import {useSelector,useDispatch} from 'react-redux'
-import {delBasket} from 'redux/basketSlice'
+import {delBasket,decCount} from 'redux/basketSlice'
 
 function Basket({bs}) {
 
@@ -24,7 +24,7 @@ function Basket({bs}) {
     return (
         <div className={`bskt ${bs}`}>
                             {
-                    x&&x.map((e)=>
+                    x!==[]?x.map((e)=>
                     {
                         return(
                             <div className='bs-item'>
@@ -38,10 +38,11 @@ function Basket({bs}) {
                                 <i onClick={()=>
                                 {
                                     dispatch(delBasket(e.id))
+                                    dispatch(decCount())
                                 }} class="fa-solid fa-trash-can"></i>
                             </div>
                         )
-                    })
+                    }):<div>salam</div>
                 }
 
             <div className="totalsum">

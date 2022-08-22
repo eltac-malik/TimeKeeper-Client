@@ -104,6 +104,11 @@
 
 .btn-explore button
 {
+    cursor: pointer;
+}
+
+.btn-explore button
+{
     background-color: #fff;
     color: #f9706a;
     border: 1px solid #f9706a;

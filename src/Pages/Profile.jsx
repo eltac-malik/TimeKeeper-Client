@@ -12,7 +12,8 @@ function Profile() {
         
     useEffect(()=>
     {
-        setPd(JSON.parse(localStorage.getItem("Utoken")))
+
+        setPd(decodeToken(JSON.parse(localStorage.getItem("Utoken"))))
     },[])
 
     const handleLogOut = ()=>
@@ -20,18 +21,17 @@ function Profile() {
         localStorage.removeItem("Utoken")
         navigate("/")
     }
-
-    
-    let x = decodeToken(pd)
+    console.log("vuqar",pd);
 
     return (
         <div className='profile'>
             <div className="p-div">
                 <Formik
+                enableReinitialize={true}
                 initialValues={{
-                    prname:"",
+                    prname:"salam",
                     prsurname:"",
-                    prmail:x&&x.email,
+                    prmail:pd?.email,
                     prphone:""
                 }}
                 >
@@ -39,7 +39,7 @@ function Profile() {
                         
                         <div className="p-field">
                         <label className='p-label' htmlFor="p-name">Name</label>
-                        <Field className='p-inp' id='p-name' name='prname'/>
+                        <Field className='p-inp'  id='p-name' name='prname'/>
                         </div>
                         
                         <div className="p-field">

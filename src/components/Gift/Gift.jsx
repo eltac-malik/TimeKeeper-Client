@@ -1,8 +1,12 @@
 import React from 'react'
 import './Gift.css'
+import {useNavigate} from 'react-router-dom'
 
 
 function Gift() {
+
+    const navigate = useNavigate()
+
     return (
         <div className='gifts'>
             <div className="gift-sec">
@@ -13,7 +17,7 @@ function Gift() {
             <h1>GIFT BOXES</h1>
             <p className='planter'>From planter materials to style options, discover which planter is best for your space.</p>
             <div className="btn-explore">
-            <button>Explore The Shop</button>
+            <button onClick={()=> navigate("/shop")}>Explore The Shop</button>
             </div>
            </div>
              </div>
