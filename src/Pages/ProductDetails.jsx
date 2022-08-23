@@ -95,6 +95,10 @@ function ProductDetails() {
                       <p className='prod-dis'>{prod&&prod.price} AZN</p>
                     </div>
                     <p className='prod-desc'>{prod&&prod.description}</p>
+                  <div className="det-btn">
+                    <p className='det-add'>Add Cart</p>
+                    <p>⬅ Go Back</p>
+                  </div>
                   </div>
                 </div>
            

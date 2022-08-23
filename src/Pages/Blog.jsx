@@ -3,6 +3,7 @@ import "assets/css/Shop.css";
 import { Link } from "react-router-dom";
 import ShopCard from 'components/ShopCard/ShopCard'
 import 'assets/css/Blog.css'
+import {useNavigate} from 'react-router-dom'
 import axios from "axios";
 
 function Shop() {
@@ -16,10 +17,15 @@ function Shop() {
   },[])
 
 
-  console.log(blog);
+  const navigate = useNavigate()
+
+  const handleRead = (e)=>
+  {
+    navigate(`/blog/${e}`)
+  }
 
   return (
-    <div className="shop">
+    <div className="shop blogs">
       <div className="route">
         <p className="route-path">
           <Link className="link-b" to="/">
@@ -86,7 +92,7 @@ function Shop() {
       ).map(e=>
         {
           return(
-        <div className="blg-map">
+        <div key={e.id} className="blg-map">
           <div className="blg-img">
             <img src={`http://ejtacmalik-001-site1.btempurl.com/blogs/${e.image}`} alt=""/>
           </div>
@@ -95,7 +101,7 @@ function Shop() {
             <p className='blg-t'>{e.mainBlog.slice(0,50)}......</p>
             <p className='blg-t'>{e.subBlog.slice(0,100)}......</p>
             <div className="blg-btn">
-              <div className="blg-read">
+              <div onClick={()=> handleRead(e.id)} className="blg-read">
                 Read More
               </div>
             </div>

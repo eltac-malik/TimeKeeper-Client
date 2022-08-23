@@ -54,7 +54,7 @@ function Footer() {
         </div>
       </div>
       <div className="latest foot">
-        <h2>Latest Blogs</h2>
+        <h2>Latest Blogs 📠</h2>
         {
           seen.map(e=>
             {
