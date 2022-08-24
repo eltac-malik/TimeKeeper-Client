@@ -20,7 +20,7 @@ function Shop() {
 
   let ucolor = fillColor.filter(e=> e!==undefined)
   console.log(ucolor);
-  
+
   
 
   
@@ -174,7 +174,7 @@ function Shop() {
 
        
         </div>
-        <ShopCard/>
+        <ShopCard inp={inp}/>
     
       </div>
   

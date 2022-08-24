@@ -1,9 +1,7 @@
 .blg-dt
 {
     width: 78%;
-    margin-top: 80px;
     display: flex;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -30,4 +28,39 @@ marquee
 {
     font-size: 30px;
     font-weight: bold;
+}
+
+.main-blg
+{
+    width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 40px;
+    text-align: left;
+    background-color: white;
+}
+
+.main-blg p
+{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.m-blg
+{
+    padding: 20px;
+    padding-left: 0px;
+}
+
+.sub-blg
+{
+    border-left: 3px solid #f9706a;
+    padding: 20px;
+    padding-left: 30px;
+    font-size: 20px;
+    font-style: italic;
+    background-color: #f5797250;
 }

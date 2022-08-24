@@ -68,7 +68,7 @@ function BlogDetails() {
 
        
         </div>
-        <div className="blgs">
+        <div className="blg-dt">
             <div className="img-title">
                 <marquee>{x&&x.name}</marquee>
             </div>
@@ -76,7 +76,11 @@ function BlogDetails() {
             <img src={`http://ejtacmalik-001-site1.btempurl.com/blogs/${x&&x.image}`} alt=""/>
             </div>
             <div className="img--content">
-                <p>{x&&x.mainBlog}</p>
+              <div className="main-blg">
+              <p className='m-blg'>{x&&x.mainBlog}</p>
+              <p className='sub-blg'>{x&&x.subBlog}</p>
+              </div>
+              <Link to='/blog' className='link-b reg'>⬅ Go Back</Link>
             </div>
         </div>
       </div>

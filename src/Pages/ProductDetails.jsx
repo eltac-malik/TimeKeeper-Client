@@ -3,8 +3,16 @@ import '../assets/css/ProductDetails.css'
 import {useParams} from 'react-router-dom'
 import axios from 'axios';
 import Slider from "react-slick";
+import {useNavigate} from 'react-router-dom'
 
 function ProductDetails() {
+
+  const navigate = useNavigate()
+
+  const handleBack = ()=>
+  {
+    navigate("/shop")
+  }
 
     var aboutSettings = {
         dots: true,
@@ -56,9 +64,6 @@ function ProductDetails() {
                 setMainImg(`${path}${resp.data.mainImage}`)
             })
     },[])
-
-    
-    console.log(prod);
     
 
     return (
@@ -97,7 +102,7 @@ function ProductDetails() {
                     <p className='prod-desc'>{prod&&prod.description}</p>
                   <div className="det-btn">
                     <p className='det-add'>Add Cart</p>
-                    <p>⬅ Go Back</p>
+                    <p onClick={()=> handleBack()}>⬅ Go Back</p>
                   </div>
                   </div>
                 </div>

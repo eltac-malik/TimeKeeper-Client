@@ -4,10 +4,11 @@ import th from 'assets/img/3x3dot-black.png'
 import line from 'assets/img/3line.png'
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import {useDispatch} from 'react-redux'
+import {setBasket,addCount} from 'redux/basketSlice'
 
 
-
-function ShopCard() {
+function ShopCard({inp}) {
 
     const [pdata,setPdata] = useState([])
     const [style,setStlye] = useState("crds")
@@ -17,11 +18,28 @@ function ShopCard() {
       axios.get("http://ejtacmalik-001-site1.btempurl.com/api/Products/getall/1")
       .then(resp=> setPdata(resp.data.items))
     },[])
-  
+    const dispatch = useDispatch()
     const navigate = useNavigate()
 
     console.log(pdata);
     
+      
+
+  const handleBasket = (e)=>
+  {
+    if(JSON.parse(localStorage.getItem("Utoken"))===null)
+    {
+      navigate("/login")
+    }
+    else
+    {
+        let x = JSON.parse(localStorage.getItem("basket"))
+        localStorage.setItem("basket",JSON.stringify([...x,e]))
+        dispatch(setBasket(JSON.parse(localStorage.getItem("basket"))))
+        dispatch(addCount())
+    }
+  }
+
     
     const handleDeatils = (e)=>
     {
@@ -47,7 +65,17 @@ function ShopCard() {
             </div>
             <div className="all-card">
             {
-                pdata&&pdata.map(e=> 
+                pdata&&pdata.filter(e=>
+                    {
+                        if(inp==="")
+                        {
+                            return e
+                        }
+                        else if(e.name.toLowerCase().includes(inp.toLowerCase())||e.code.toLowerCase().includes(inp.toLowerCase()))
+                        {
+                            return e
+                        }
+                    }).map(e=> 
                 {
                     return(
                         <div key={e.id} onClick={()=>handleDeatils(e.id)}  className={style}>
@@ -64,9 +92,10 @@ function ShopCard() {
                             <p className='d-pr'>$ {e.discountPrice}</p>
                             <p className='pr'>$ {e.price}</p>
                         </div>
-                        <div onClick={(e)=>
+                        <div onClick={(z)=>
                         {
-                            e.stopPropagation()
+                            handleBasket(e)
+                            z.stopPropagation()
                         }} className="add">
                         <i className="bi bi-cart"></i>
                         Add to Cart

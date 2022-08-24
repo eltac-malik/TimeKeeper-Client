@@ -88,6 +88,7 @@ function Login() {
               </div>
               <input className="form-sub" type="submit" value="LOGIN" />
               <Link to='/register' className='link-b reg'>Register</Link>
+              <Link to='/' className='link-b reg'>Go Back</Link>
             </Form>
           )}
         </Formik>
