@@ -4,8 +4,6 @@ import {BrowserRouter as Router,Routes,Route,useLocation,Navigate} from 'react-r
 import Home from './Pages/Home'
 import Contact from 'Pages/Contact'
 import Login from 'Pages/Login'
-import Register from 'Pages/Register'
-import Register2 from 'Pages/Register2'
 import Base from 'Routes/BaseRoutes'
 import Shop from 'Pages/Shop'
 import Profile from 'Pages/Profile'
@@ -14,16 +12,26 @@ import Reset from 'components/ResetPassword/index'
 import Details from 'Pages/ProductDetails'
 import {AnimatePresence} from 'framer-motion'
 import BDetails from 'Pages/BlogDetails'
+import Registers from 'Pages/Registers'
+import {useDispatch} from 'react-redux'
+import {setBasket} from 'redux/basketSlice'
 
 
 function App() {
-
+  const dispatch = useDispatch()
   useEffect(()=>
   {
     
-    if (JSON.parse(localStorage.getItem("basket")===null))
+    if (JSON.parse(localStorage.getItem("basket"))===null)
     {
+      console.log("salaaslkakhdakjfhskfhksjhfjksdhfkdsh");
       localStorage.setItem("basket",JSON.stringify([])) 
+      dispatch(setBasket(JSON.parse(localStorage.getItem("basket"))))
+      
+    }
+    else
+    {
+      dispatch(setBasket(JSON.parse(localStorage.getItem("basket"))))
     }
   },[])
 
@@ -41,8 +49,7 @@ function App() {
           <Route path='/reset' element={<Base><Reset/></Base>}/>
           <Route path='/blog' element={<Base><Blog/></Base>}/>
           <Route path='/blog/:id' element={<Base><BDetails/></Base>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/registers2' element={<Register2/>}/>
+          <Route path='/registers' element={<Registers/>}/>
           <Route path='/contact' element={<Base><Contact/></Base>}/>
           <Route path='/shop' element={<Base><Shop/></Base>}/>
 

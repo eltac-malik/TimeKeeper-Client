@@ -6,7 +6,7 @@ const basketSlice = createSlice({
     name:"basket",
     initialState:{
         basket:JSON.parse(localStorage.getItem("basket")),
-        count:x.length
+        count:x&&x.length
     },
     reducers:{
         setBasket:(state,action)=>

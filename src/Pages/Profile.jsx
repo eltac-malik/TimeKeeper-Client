@@ -29,8 +29,8 @@ function Profile() {
                 <Formik
                 enableReinitialize={true}
                 initialValues={{
-                    prname:"salam",
-                    prsurname:"",
+                    prname:pd?.name,
+                    prsurname:pd?.surname,
                     prmail:pd?.email,
                     prphone:""
                 }}
