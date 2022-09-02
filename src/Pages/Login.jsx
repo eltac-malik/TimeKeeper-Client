@@ -87,7 +87,7 @@ function Login() {
                 <i onClick={handleIcon} className={`bi bi-eys ${eye}`}></i>
               </div>
               <input className="form-sub" type="submit" value="LOGIN" />
-              <Link to='/register' className='link-b reg'>Register</Link>
+              <Link to='/registers' className='link-b reg'>Register</Link>
               <Link to='/' className='link-b reg'>Go Back</Link>
             </Form>
           )}
